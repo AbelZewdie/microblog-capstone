@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
+        <script
+      src="https://kit.fontawesome.com/64d58efce2.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Global CSS (CSS rules you want applied to all pages) -->
+    <link rel="stylesheet" href="./global.css">
+
+    <!-- Page-specific CSS -->
+    <link rel="stylesheet" href="./landing.css">
+
+    <title>Spark</title>
+
+    <!-- Run BEFORE page is finished loading (before window.onload - don't add the `defer` attribute): -->
+    <script src="./auth.js"></script>
+    <script>
+        //if (isLoggedIn() === true) window.location.replace("/posts");
+    </script>
+</head>
+
+
+
+
+
+
+<body>
+
+
+    <div class="container">
+        <div class="forms-container">
+          <div class="signin-signup">
+            <form action="#" class="sign-in-form" id="sign-in-form">
+              <h2 class="title">Sign in</h2>
+              <div id="errorMessage"></div>
+              <div class="input-field">
+                <i class="fas fa-user"></i>
+                <input id="username" type="text" placeholder="Username" />
+              </div>
+              <div class="input-field">
+                <i class="fas fa-lock"></i>
+                <input id="password" type="password" placeholder="Password" />
+              </div>
+              <input type="submit" value="Login" class="btn solid" />
+              <p class="social-text">Or Sign in with social platforms</p>
+              <div class="social-media">
+                <a href="#" class="social-icon">
+                  <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="#" class="social-icon">
+                  <i class="fab fa-twitter"></i>
+                </a>
+                <a href="#" class="social-icon">
+                  <i class="fab fa-google"></i>
+                </a>
+                <a href="#" class="social-icon">
+                  <i class="fab fa-linkedin-in"></i>
+                </a>
+              </div>
+            </form>
+            <form action="#" class="sign-up-form">
+              <h2 class="title">Sign up</h2>
+              <div class="input-field">
+                <i class="fas fa-user"></i>
+                <input type="text" placeholder="Username" id="registerUsername"/>
+              </div>
+              <div class="input-field">
+                <i class="fas fa-envelope"></i>
+                <input type="text" placeholder="Full Name" id="registerFullName"/>
+              </div>
+              <div class="input-field">
+                <i class="fas fa-lock"></i>
+                <input type="password" placeholder="Password" id="registerPassword"/>
+              </div>
+              <input type="submit" class="btn" value="Sign up" id="registerButton" />
+              <p class="social-text">Or Sign up with social platforms</p>
+              <div class="social-media">
+                <a href="#" class="social-icon">
+                  <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="#" class="social-icon">
+                  <i class="fab fa-twitter"></i>
+                </a>
+                <a href="#" class="social-icon">
+                  <i class="fab fa-google"></i>
+                </a>
+                <a href="#" class="social-icon">
+                  <i class="fab fa-linkedin-in"></i>
+                </a>
+              </div>
+            </form>
+          </div>
+        </div>
+  
+        <div class="panels-container">
+          <div class="panel left-panel">
+            <div class="content">
+              <h3>SPARK</h3>
+              <p>
+                Ready to be part of something special? Sign up for Spark and find your community.
+              </p>
+              <button class="btn transparent" id="sign-up-btn">
+                Sign up
+              </button>
+            </div>
+            <img src="./signup-img/log.svg" class="image" alt="" />
+          </div>
+          <div class="panel right-panel">
+            <div class="content">
+              <h3>SPARK</h3>
+              <p>
+            Feeling the nostalgia? We get it! Come back to a place where you belong, spark conversations, and rediscover the warmth of your Spark community.
+              </p>
+              <button class="btn transparent" id="sign-in-btn">
+                Sign in
+              </button>
+            </div>
+            <img src="./signup-img/register.svg" class="image" alt="" />
+          </div>
+        </div>
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- <header>
+        <h1>Welcome to <code>YOUR MICROBLOG NETWORK</code></h1>
+        <a href="/register/">Register</a>
+    </header>
+
+    <main>
+        <div id="errorMessage"></div>
+        <form id="login">
+            <div>
+                <label for="username">Username</label>
+                <input type="text" id="username" minlength="1">
+            </div>
+
+            <div>
+                <label for="password">Password</label>
+                <input type="password" id="password" minlength="1">
+            </div>
+
+            <button id="loginButton" type="submit">Login</button>
+        </form>
+
+    </main> -->
+
+    <footer></footer>
+</body>
+
+
+
+
+
+
+
+
+
+<script src="./landing2.js"></script>
+<!-- Page-specific code -->
+    <script src="./landing.js"></script>
+</html>
