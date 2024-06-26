@@ -9,13 +9,17 @@
 //   -d '{
 //   "text": "string"
 // }'
-buttonPostMessage.addEventListener("click", e => {
+messageElement.addEventListener("keydown", e => {
+    if (e.code != "Enter") {
+        return 
+    } 
     fetch(apiBaseURL + "/api/posts", {
         method: "POST",
         mode: "cors", // cors, no-cors, *cors, same-origin
         cache: "no-cache", // *default, no-cache, reload, 
         credentials: "same-origin",
-        header: {
+
+        headers: {
             accept: "application/json",
             "Content-Type": "application/json",
             Authorization: "Bearer " + localStorage.token
@@ -24,33 +28,80 @@ buttonPostMessage.addEventListener("click", e => {
             text: messageElement.value
         })
     }).then(response => {
-        debugger;
+        messageElement.value = "";
         console.log(response);
         location = "/posts/";  //force refresh
     });
 });
 
+
+
+
 function getMessage(message) {
+    const d = new Date(message.createdAt)
     return `
-    <div>
-        <h1>${message.text}</h1>
-        <div class="username">${message.username}</div>
-        <div class="createdAt">${message.createdAt}</div>
-        <div class="ID:">${message._id}</div>
-        <div class="Likes:">${message.likes.length}</div>
-    </div>
-    <hr>
+    <div class="post-container">
+        <div class="post-row">
+          <div class="user-profile">
+            <img src="images/greyman.png" alt="">
+            <div>
+              <p>${message.username}</p>
+              <span>${d.toLocaleDateString()}</span>
+              <span>${d.toLocaleTimeString()}</span>
+              <span>id: ${message._id.slice(-5)}</span>
+
+            </div>
+          </div>
+          <a href="#"><i class="fa-solid fa-ellipsis-vertical"></i></a>
+        </div>
+
+        <p class="post-text">${message.text}</p>
+
+        <!-- ----------------------Like ICONS | #1 Post---------------------- -->
+        <div class="post-row">
+          <div class="activity-icons">
+            <div><img src="images/like-blue.png" onclick="like('${message._id}')" alt="">${message.likes.length}</div>
+            <div><img src="images/comments.png" alt=""> 45</div>
+            <div><img src="images/share.png" alt=""> 20</div>
+          </div>
+          <div class="post-profile-icon">
+            <img src="images/profile-pic-abel.png" alt=""><i class="fa-solid fa-caret-down"></i>
+          </div>
+        </div>
+      </div>
+    
     `;
 }
+
+function like(id) {
+    console.log(id);
+
+    fetch(apiBaseURL + "/api/likes", {
+        method: "POST",
+        // mode: "no-cors", // cors, no-cors, *cors, same-origin
+        // credentials: "omit", // include, *same-origin, omit
+
+        headers: {
+            accept: "application/json",
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${localStorage.token}`
+        },
+
+        body: JSON.stringify({
+            "postId": id
+        })
+    }).then(r => location = location);
+}
+
 function showMessages(messages) {
-    if(messages.hasOwnProperty("message")){
+    if (messages.hasOwnProperty("message")) {
         location = "/";
         return;
     }
     messagesOutput.innerHTML = messages.map(getMessage).join("");
 }
 
-fetch(apiBaseURL + "/api/posts?limit=10000&offset=1", {
+fetch(apiBaseURL + "/api/posts", {
     method: "GET",
     // mode: "no-cors", // cors, no-cors, *cors, same-origin
     // credentials: "omit", // include, *same-origin, omit
@@ -61,6 +112,42 @@ fetch(apiBaseURL + "/api/posts?limit=10000&offset=1", {
         location = "/";
     }
     return response.json()
-}).then(data=>{
+}).then(data => {
     showMessages(data);
 });
+
+
+////////////////////////////////////////////////////
+
+var settingsMenu = document.querySelector(".setting-menu");
+var darkBtn = document.getElementById("dark-btn");
+
+function settingsMenuToggle() {
+    settingsMenu.classList.toggle("setting-menu-height");
+}
+
+darkBtn.onclick = function () {
+    darkBtn.classList.toggle("dark-btn-on");
+    document.body.classList.toggle("dark-theme");
+
+    if (localStorage.getItem("theme") == "light") {
+        localStorage.setItem("theme", "dark")
+    }
+    else {
+        localStorage.setItem("theme", "light")
+    }
+
+}
+
+if (localStorage.getItem("theme") == "light") {
+    darkBtn.classList.remove("dark-btn-on");
+    document.body.classList.remove("dark-theme");
+}
+else if (localStorage.getItem("theme") == "dark") {
+    darkBtn.classList.add("dark-btn-on");
+    document.body.classList.add("dark-theme");
+}
+else {
+    localStorage.setItem("theme", "light");
+}
+
