@@ -372,6 +372,7 @@ nav {
   border-bottom: 1px solid #ccc;
   background: transparent;
   resize: none;     /* to resize the post input */
+  color: #626262;
 }
 
 .add-post-links {
@@ -563,4 +564,8 @@ nav {
 #dark-btn.dark-btn-on {
   padding-left: 23px;
   background: #0a0a0a;
+}
+
+.write-post-container small {
+  color: #626262;
 }
