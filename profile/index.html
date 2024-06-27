@@ -76,7 +76,7 @@
 
         <div class="settings-links">
           <img src="images/logout.png" alt="" class="settings-icon">
-          <a href="#">Logout <img src="images/arrow.png" width="10px" alt=""></a>
+          <a href="javascript:logout()">Logout <img src="images/arrow.png" width="10px" alt=""></a>
         </div>
 
       </div>
@@ -122,7 +122,8 @@
   <!-- --------------------------------profile intro-------------------------------- -->
 <div class="profile-intro">
   <h3>Bio</h3>
-  <p class="intro-text">Believe in yourself and you can do unbelievable things. <img src="images/feeling.png" alt=""></p>
+  <p id="bio" class="intro-text">Believe in yourself and you can do unbelievable things. <img src="images/feeling.png" alt=""></p>
+  <textarea name="bioText" id="bioText" style="width: 100%;"></textarea>
   <hr>
   <ul>
     <li><img src="images/profile-job.png" alt=""> Website Developer</li>
@@ -379,6 +380,7 @@
 
 
 </body>
+<script src="/auth.js"></script>
 <script src="profile.js"></script>
 
 </html>
