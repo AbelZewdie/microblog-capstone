@@ -61,8 +61,8 @@ function getMessage(message) {
         <div class="post-row">
           <div class="activity-icons">
             <div><img src="images/like-blue.png" onclick="like('${message._id}')" alt="">${message.likes.length}</div>
-            <div><img src="images/comments.png" alt=""> 45</div>
-            <div><img src="images/share.png" alt=""> 20</div>
+            <div><img src="images/comments.png" alt=""> 0</div>
+            <div><img src="images/share.png" alt=""> 0</div>
           </div>
           <div class="post-profile-icon">
             <img src="images/profile-pic-abel.png" alt=""><i class="fa-solid fa-caret-down"></i>
