@@ -24,10 +24,7 @@ body {
   transition: background 0.3s;
 }
 
-#bioText{
-  background-color: var(--bg-color);
-  color: #626262;
-}
+
 /* ///////////////////////////////////////////////////////////////////////////////////////////////// */
                                         /* Header */
 /* ///////////////////////////////////////////////////////////////////////////////////////////////// */
@@ -768,4 +765,9 @@ nav {
   position: absolute;
   bottom: 0;
   left: 0;
+}
+
+#bioText {
+  background-color: var(--bg-color);
+  color: #626262;
 }
