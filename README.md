@@ -25,6 +25,13 @@
 <hr>
 
 
+## DarkMode
+| **Get the modern look! Activate dark mode for a contemporary aesthetic on your profile and posts.**                    | **Dim the lights, soothe your eyes. Dark mode offers a relaxing view for your profile and post pages.**                 |
+|---------------------------|---------------------------|
+| ![Image 1](./ReadMeImages/Darkmode1.png) | ![Image 2](./ReadMeImages/Darkmode2.png) |
+<hr>
+
+
 ## Favorite Code | `Register/LogIn Page Javascript`
 * **writing this code helped me learn new concepts about JavaScript.** <hr>
 ```
